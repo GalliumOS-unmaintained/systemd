@@ -1,0 +1,75 @@
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -494,7 +494,6 @@
+ 	units/suspend.target \
+ 	units/swap.target \
+ 	units/slices.target \
+-	units/system.slice \
+ 	units/x-.slice \
+ 	units/systemd-fsckd.socket \
+ 	units/systemd-initctl.socket \
+@@ -5247,9 +5246,6 @@
+ nodist_systemunit_DATA += \
+ 	units/systemd-machined.service
+ 
+-dist_systemunit_DATA += \
+-	units/machine.slice
+-
+ dist_systemunit_DATA_busnames += \
+ 	units/org.freedesktop.machine1.busname
+ 
+@@ -5910,9 +5906,6 @@
+ 	units/systemd-logind.service \
+ 	units/systemd-user-sessions.service
+ 
+-dist_systemunit_DATA += \
+-	units/user.slice
+-
+ dist_systemunit_DATA_busnames += \
+ 	units/org.freedesktop.login1.busname
+ 
+--- a/units/machine.slice
++++ /dev/null
+@@ -1,11 +0,0 @@
+-#  This file is part of systemd.
+-#
+-#  systemd is free software; you can redistribute it and/or modify it
+-#  under the terms of the GNU Lesser General Public License as published by
+-#  the Free Software Foundation; either version 2.1 of the License, or
+-#  (at your option) any later version.
+-
+-[Unit]
+-Description=Virtual Machine and Container Slice
+-Documentation=man:systemd.special(7)
+-Before=slices.target
+--- a/units/system.slice
++++ /dev/null
+@@ -1,14 +0,0 @@
+-#  This file is part of systemd.
+-#
+-#  systemd is free software; you can redistribute it and/or modify it
+-#  under the terms of the GNU Lesser General Public License as published by
+-#  the Free Software Foundation; either version 2.1 of the License, or
+-#  (at your option) any later version.
+-
+-[Unit]
+-Description=System Slice
+-Documentation=man:systemd.special(7)
+-DefaultDependencies=no
+-Before=slices.target
+-Wants=-.slice
+-After=-.slice
+--- a/units/user.slice
++++ /dev/null
+@@ -1,11 +0,0 @@
+-#  This file is part of systemd.
+-#
+-#  systemd is free software; you can redistribute it and/or modify it
+-#  under the terms of the GNU Lesser General Public License as published by
+-#  the Free Software Foundation; either version 2.1 of the License, or
+-#  (at your option) any later version.
+-
+-[Unit]
+-Description=User and Session Slice
+-Documentation=man:systemd.special(7)
+-Before=slices.target
