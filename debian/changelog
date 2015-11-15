@@ -1,3 +1,15 @@
+systemd (219-7ubuntu29) vivid; urgency=medium
+
+  * logind.conf defaults
+
+ -- Hugh Greenberg <hugegreenbug@gmail.com>  Sat, 31 Oct 2015 14:47:46 +0200
+
+systemd (219-7ubuntu27) vivid; urgency=medium
+
+  * logind.conf defaults
+
+ -- Hugh Greenberg <hugegreenbug@gmail.com>  Tue, 29 Sep 2015 14:47:46 +0200
+
 systemd (219-7ubuntu26) vivid; urgency=medium
 
   * logind.conf defaults
